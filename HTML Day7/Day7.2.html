@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextFile</title>
+</head>
+
+<body>
+    <input type="file" accept=".txt" id="inputfile"><br>Element need to be searched<br>
+    <input type="text" id="searchtxt"><br>Element to be replaced<br>
+    <input type="text" id="replacetxt"><br>
+    <button type="button" onclick="reptxt()" name="Replace"></button><br>
+    <textarea cols="80" rows="20" id="display"></textarea>
+    <script type="text/javascript">
+        document.getElementById('inputfile').addEventListener('change', function () {
+
+                var fr = new FileReader();
+                fr.readAsText(this.files[0]);
+                fr.onload = function () {
+                    document.getElementById('display').textContent = fr.result;
+                }
+            })
+            /*var par = document.getElementById('display').textContent;
+            console.log(par);
+            function reptxt(){
+                var s= new FileReader();
+                
+                document.getElementById('display').textContent = s.result
+            }*/
+    </script>
+</body>
+
+</html>
